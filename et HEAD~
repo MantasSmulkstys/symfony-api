@@ -1,0 +1,394 @@
+[33mcommit 40aa3b86114858ad8bc7568b1e4e6a46862aabd6[m[33m ([m[1;36mHEAD -> [m[1;32minput[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Mantas <mantas.smulkstys@gmail.com>
+Date:   Fri Sep 16 21:49:57 2022 +0300
+
+    added form input result printing
+
+[1mdiff --git a/.idea/.gitignore b/.idea/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..13566b8[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/.gitignore[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m# Default ignored files[m
+[32m+[m[32m/shelf/[m
+[32m+[m[32m/workspace.xml[m
+[32m+[m[32m# Editor-based HTTP Client requests[m
+[32m+[m[32m/httpRequests/[m
+[32m+[m[32m# Datasource local storage ignored files[m
+[32m+[m[32m/dataSources/[m
+[32m+[m[32m/dataSources.local.xml[m
+[1mdiff --git a/.idea/modules.xml b/.idea/modules.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fbc804d[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/modules.xml[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="ProjectModuleManager">[m
+[32m+[m[32m    <modules>[m
+[32m+[m[32m      <module fileurl="file://$PROJECT_DIR$/.idea/symfony-api.iml" filepath="$PROJECT_DIR$/.idea/symfony-api.iml" />[m
+[32m+[m[32m    </modules>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/php.xml b/.idea/php.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b741077[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/php.xml[m
+[36m@@ -0,0 +1,142 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="PhpIncludePathManager">[m
+[32m+[m[32m    <include_path>[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/mime" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/validator" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/cache" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/version" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/type" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/finder" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/web-link" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/string" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/routing" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/notifier" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/console" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/twig/twig" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/process" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/intl" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/form" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/translation" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/asset" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/config" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/flex" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/composer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/psr/cache" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/psr/container" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/psr/link" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/psr/log" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/common" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phar-io/version" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />[m
+[32m+[m[32m    </include_path>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />[m
+[32m+[m[32m  <component name="PhpUnit">[m
+[32m+[m[32m    <phpunit_settings>[m
+[32m+[m[32m      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml.dist" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />[m
+[32m+[m[32m    </phpunit_settings>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/phpunit.xml b/.idea/phpunit.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4f8104c[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/phpunit.xml[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="PHPUnit">[m
+[32m+[m[32m    <option name="directories">[m
+[32m+[m[32m      <list>[m
+[32m+[m[32m        <option value="$PROJECT_DIR$/tests" />[m
+[32m+[m[32m      </list>[m
+[32m+[m[32m    </option>[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/symfony-api.iml b/.idea/symfony-api.iml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..122c698[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/symfony-api.iml[m
+[36m@@ -0,0 +1,141 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<module type="WEB_MODULE" version="4">[m
+[32m+[m[32m  <component name="NewModuleRootManager">[m
+[32m+[m[32m    <content url="file://$MODULE_DIR$">[m
+[32m+[m[32m      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />[m
+[32m+[m[32m      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="App\" />[m
+[32m+[m[32m      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="App\Tests\" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpdoc-parser" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dependency-injection" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/mime" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/validator" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/browser-kit" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dom-crawler" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/css-selector" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-access" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-grapheme" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/type" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/doctrine-bridge" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/resource-operations" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/twig-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-reflector" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/doctrine-messenger" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-enumerator" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/runtime" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/lines-of-code" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/global-state" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/mailer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/exporter" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-csrf" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/complexity" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/expression-language" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-core" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-http" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/cli-parser" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/web-link" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/web-profiler-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/string" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/service-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/proxy-manager-bridge" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/serializer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/debug-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/routing" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/error-handler" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/notifier" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-info" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofphp/proxy-manager-lts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/console" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/extra-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/framework-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/process" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/password-hasher" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/intl" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/filesystem" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/twig-bridge" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dotenv" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/form" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/messenger" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/asset" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bridge" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/config" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/stopwatch" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/masterminds/html5" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-code-coverage" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-invoker" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-text-template" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-code" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/flex" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/sensio/framework-extra-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/event-dispatcher" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/link" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/collections" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/common" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/dbal" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-migrations-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/event-manager" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/migrations" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/orm" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/persistence" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/sql-formatter" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/manifest" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/version" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />[m
+[32m+[m[32m    </content>[m
+[32m+[m[32m    <orderEntry type="inheritedJdk" />[m
+[32m+[m[32m    <orderEntry type="sourceFolder" forTests="false" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</module>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/symfony2.xml b/.idea/symfony2.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3298060[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/symfony2.xml[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="Symfony2PluginSettings">[m
+[32m+[m[32m    <option name="pluginEnabled" value="true" />[m
+[32m+[m[32m    <option name="lastServiceGeneratorLanguage" value="yaml" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/.idea/vcs.xml b/.idea/vcs.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..94a25f7[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/vcs.xml[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project version="4">[m
+[32m+[m[32m  <component name="VcsDirectoryMappings">[m
+[32m+[m[32m    <mapping directory="$PROJECT_DIR$" vcs="Git" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/composer.json b/composer.json[m
+[1mindex 3b12924..95ac656 100644[m
+[1m--- a/composer.json[m
+[1m+++ b/composer.json[m
+[36m@@ -11,9 +11,10 @@[m
+         "doctrine/doctrine-bundle": "^2.7",[m
+         "doctrine/doctrine-migrations-bundle": "^3.2",[m
+         "doctrine/orm": "^2.13",[m
+[32m+[m[32m        "laminas/laminas-code": "~4.7.0-dev",[m
+         "phpdocumentor/reflection-docblock": "^5.3",[m
+         "phpstan/phpdoc-parser": "^1.8",[m
+[31m-        "sensio/framework-extra-bundle": "^6.1",[m
+[32m+[m[32m        "sensio/framework-extra-bundle": "^6.2",[m
+         "symfony/asset": "6.1.*",[m
+         "symfony/console": "6.1.*",[m
+         "symfony/doctrine-messenger": "6.1.*",[m
+[36m@@ -49,7 +50,7 @@[m
+         "sym
