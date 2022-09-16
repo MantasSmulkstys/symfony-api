@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba2ca3afb415744934a335161413cd1f",
+    "content-hash": "7f3883d5605668b0e64368ec5d15b10f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -9711,7 +9711,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "laminas/laminas-code": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
