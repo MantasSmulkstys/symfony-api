@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Form\CocktailType;
 use App\Entity\CocktailName;
-use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +15,7 @@ class CocktailController extends AbstractController
     public function initForm()
     {
         $cocktailName = new CocktailName();
+
         $form = $this->createForm(CocktailType::class, $cocktailName, [
             'action' => $this->generateUrl('submitName'),
         ]);
@@ -31,8 +31,8 @@ class CocktailController extends AbstractController
     public function submitName(Request $request): Response
     {
         $cocktailName = new CocktailName();
-        $form = $this->createForm(CocktailType::class, $cocktailName);
 
+        $form = $this->createForm(CocktailType::class, $cocktailName);
         $form->handleRequest($request);
 
         //TODO: add validations so only string or numstring would be preferred.
