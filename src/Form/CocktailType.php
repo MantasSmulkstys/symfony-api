@@ -8,12 +8,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Entity\CocktailName;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CocktailFormType extends AbstractType
+class CocktailType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
+            ->add('cocktailName', TextType::class)
         ;
     }
 
@@ -23,5 +23,4 @@ class CocktailFormType extends AbstractType
             'data_class' => CocktailName::class,
         ]);
     }
-
 }

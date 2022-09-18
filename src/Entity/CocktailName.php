@@ -6,20 +6,19 @@ class CocktailName
 {
     protected string $cocktailName;
 
-    public function getName(): string
+    /**
+     * @return string
+     */
+    public function getCocktailName(): string
     {
         return $this->cocktailName;
     }
 
-    public function setName(string $cocktailName): void
+    /**
+     * @param string $cocktailName
+     */
+    public function setCocktailName(string $cocktailName): void
     {
         $this->cocktailName = $cocktailName;
     }
-
-    public function __toString(): string
-    {
-        return $this->cocktailName;
-    }
-
-
 }

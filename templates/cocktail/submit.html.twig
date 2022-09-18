@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{path('initForm')}}">Home</a>
+    <h1>
+        Result
+        <img src="{{ asset('styles/osrs-cocktail.png') }}"
+             width="35"
+             height="35">
+    </h1>
+    <h1>{{ result }}</h1>
+{% endblock %}
