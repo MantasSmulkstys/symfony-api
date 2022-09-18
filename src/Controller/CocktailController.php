@@ -20,7 +20,7 @@ class CocktailController extends AbstractController
             'action' => $this->generateUrl('submitName'),
         ]);
 
-        return $this->render('cocktail/home.html.twig', [
+        return $this->render('cocktail/input.html.twig', [
             'cocktailForm' => $form->createView(),
             'cocktailName' => '',
             'errorMessage' => ''
