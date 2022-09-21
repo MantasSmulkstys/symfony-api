@@ -84,7 +84,7 @@ class CocktailController extends AbstractController
 
         $parsedResponse = $response->toArray();
 
-        if(empty($parsedResponse['drinks']) && empty($parsedResponse['drinks'][0])){
+        if(empty($parsedResponse['drinks']) || empty($parsedResponse['drinks'][0])){
             return 'cocktail not found';
         }
 
