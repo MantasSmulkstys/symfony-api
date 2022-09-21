@@ -86,7 +86,7 @@ class CocktailController extends AbstractController
             return 'cocktail not found';
         }
         else{
-            return $parsedResponse['drinks'][1]['strDrink'];
+            return $parsedResponse['drinks'][0]['strDrink'];
         }
         //TODO error logger
     }
