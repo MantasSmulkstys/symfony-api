@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use function MongoDB\BSON\toJSON;
+use function PHPUnit\Framework\isNull;
 
 class CocktailController extends AbstractController
 {
@@ -78,15 +79,15 @@ class CocktailController extends AbstractController
                 's' => $cocktailName->getCocktailName()
             ]
         ]);
-        /**
-         * if(body is empty) {
-         *  log error
-         * }
-         */
-        //TODO error logger
 
         $parsedResponse = $response->toArray();
 
-        return $parsedResponse['drinks'][0]['strDrink'];
+        if(empty($parsedResponse['drinks'])){
+            return 'cocktail not found';
+        }
+        else{
+            return $parsedResponse['drinks'][1]['strDrink'];
+        }
+        //TODO error logger
     }
 }
