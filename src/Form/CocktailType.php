@@ -21,9 +21,7 @@ class CocktailType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'empty_data' => function (FormInterface $form) {
-            return new CocktailName($form->get('name')->getData());
-            }
+            'data_class' => CocktailName::class
         ]);
     }
 }

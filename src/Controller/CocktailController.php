@@ -18,7 +18,7 @@ class CocktailController extends AbstractController
 {
     private HttpClientInterface $httpClient;
 
-    private const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?';
+    private const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
 
     public function __construct(HttpClientInterface $httpClient)
     {
