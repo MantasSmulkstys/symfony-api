@@ -74,6 +74,8 @@ class CocktailController extends AbstractController
 
     private function cocktailNameRequest(CocktailName $cocktailName): string
     {
+        //TODO error logger
+
         $response = $this->httpClient->request('GET', self::URL, [
             'query' => [
                 's' => $cocktailName->getCocktailName()
@@ -82,12 +84,10 @@ class CocktailController extends AbstractController
 
         $parsedResponse = $response->toArray();
 
-        if(empty($parsedResponse['drinks'])){
+        if(empty($parsedResponse['drinks']) && empty($parsedResponse['drinks'][0])){
             return 'cocktail not found';
         }
-        else{
-            return $parsedResponse['drinks'][0]['strDrink'];
-        }
-        //TODO error logger
+
+        return $parsedResponse['drinks'][0]['strDrink'];
     }
 }
