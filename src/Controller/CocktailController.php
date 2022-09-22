@@ -72,7 +72,7 @@ class CocktailController extends AbstractController
         ]);
     }
 
-    private function cocktailNameRequest(CocktailName $cocktailName): string
+    private function cocktailNameRequest(CocktailName $cocktailName)
     {
         //TODO error logger
 
@@ -88,6 +88,6 @@ class CocktailController extends AbstractController
             return 'cocktail not found';
         }
 
-        return $parsedResponse['drinks'][0]['strDrink'];
+        return $parsedResponse['drinks'];
     }
 }

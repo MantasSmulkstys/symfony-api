@@ -8,5 +8,13 @@
              width="35"
              height="35">
     </h1>
-    <h1>{{ result }}</h1>
+
+    {% if result is iterable %}
+        {% for cocktail in result %}
+            <li>Name: {{ cocktail['strDrink']}} - ID: {{ cocktail['idDrink'] }}</li>
+        {% endfor %}
+    {% else %}
+        <h1>{{ result }}</h1>
+    {% endif %}
+
 {% endblock %}
