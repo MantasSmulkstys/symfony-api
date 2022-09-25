@@ -2,16 +2,25 @@
 
 namespace App\Controller;
 
-use App\Form\CocktailType;
+use App\Api\CocktailApiRequest;
+use App\Dto\Response\CocktailApiResponseData;
 use App\Entity\CocktailName;
+use App\Form\CocktailType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 
 class CocktailController extends AbstractController
 {
+    private CocktailApiRequest $cocktailApiRequest;
+
+    public function __construct(CocktailApiRequest $cocktailApiRequest)
+    {
+        $this->cocktailApiRequest = $cocktailApiRequest;
+    }
+
     #[Route('/', name: 'initForm')]
     public function initForm()
     {
@@ -51,14 +60,13 @@ class CocktailController extends AbstractController
 
         $cocktailName->setCocktailName($cocktailNameEntity->getCocktailName());
 
-        $client = HttpClient::create();
-        $parsedData = new CocktailApiController($client);
-
+        $cocktailApiResponseData = $this->cocktailApiRequest->cocktailNameRequest($cocktailName);
         //TODO API request action
 
         return $this->render('cocktail/submit.html.twig', [
             'cocktailForm' => $form->createView(),
-            'result' => $parsedData->cocktailNameRequest($cocktailName)
+            'cocktails' => $cocktailApiResponseData->getCocktailData(),
+            'error' => $cocktailApiResponseData->getError()
         ]);
     }
 }

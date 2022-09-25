@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{path('initForm')}}">Home</a>
+    <a href="{{ path('initForm') }}">Home</a>
     <h1>
         Result
         <img src="{{ asset('styles/osrs-cocktail.png') }}"
@@ -9,12 +9,10 @@
              height="35">
     </h1>
 
-    {% if result is iterable %}
-        {% for cocktail in result %}
-            <li>Name: {{ cocktail['strDrink']}} - ID: {{ cocktail['idDrink'] }}</li>
-        {% endfor %}
-    {% else %}
-        <h1>{{ result }}</h1>
-    {% endif %}
+    {% for cocktail in cocktails %}
+        <li>ID: {{ cocktail.id }} - Name: {{ cocktail.name }}</li>
+    {% endfor %}
+
+    <h1>{{ error }}</h1>
 
 {% endblock %}
