@@ -60,7 +60,7 @@ class CocktailController extends AbstractController
 
         $cocktailName->setCocktailName($cocktailNameEntity->getCocktailName());
 
-        $cocktailApiResponseData = $this->cocktailApiRequest->cocktailNameRequest($cocktailName);
+        $cocktailApiResponseData = $this->cocktailApiRequest->getCocktails($cocktailName);
         //TODO API request action
 
         return $this->render('cocktail/submit.html.twig', [

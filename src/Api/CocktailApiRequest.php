@@ -14,15 +14,16 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class CocktailApiRequest
 {
     private const queryParam = 's';
-    private HttpClientInterface $httpClient;
     private const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
+
+    private HttpClientInterface $httpClient;
 
     public function __construct(HttpClientInterface $httpClient)
     {
         $this->httpClient = $httpClient;
     }
 
-    public function cocktailNameRequest(CocktailName $cocktailName)
+    public function getCocktails(CocktailName $cocktailName)
     {
         $response = $this->httpClient->request('GET', self::URL, [
             'query' => [

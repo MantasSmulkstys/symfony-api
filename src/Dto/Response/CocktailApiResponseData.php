@@ -6,6 +6,10 @@ class CocktailApiResponseData
 {
     /** @var CocktailData[]|null */
     private $cocktailData;
+
+    /**
+     * @var string
+     */
     private string $error;
 
     public function __construct

@@ -4,7 +4,13 @@ namespace App\Dto\Response;
 
 class CocktailData
 {
+    /**
+     * @var int
+     */
     private int $id;
+    /**
+     * @var string
+     */
     private string $name;
 
     public function __construct(int $id, string $name)
