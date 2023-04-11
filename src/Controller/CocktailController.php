@@ -2,27 +2,23 @@
 
 namespace App\Controller;
 
-use App\Form\CocktailType;
+use App\Api\CocktailApiRequest;
+use App\Dto\Response\CocktailApiResponseData;
 use App\Entity\CocktailName;
-use http\QueryString;
+use App\Form\CocktailType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-use function MongoDB\BSON\toJSON;
-use function PHPUnit\Framework\isNull;
 
 class CocktailController extends AbstractController
 {
-    private HttpClientInterface $httpClient;
+    private CocktailApiRequest $cocktailApiRequest;
 
-    private const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
-
-    public function __construct(HttpClientInterface $httpClient)
+    public function __construct(CocktailApiRequest $cocktailApiRequest)
     {
-        $this->httpClient = $httpClient;
+        $this->cocktailApiRequest = $cocktailApiRequest;
     }
 
     #[Route('/', name: 'initForm')]
@@ -64,30 +60,13 @@ class CocktailController extends AbstractController
 
         $cocktailName->setCocktailName($cocktailNameEntity->getCocktailName());
 
+        $cocktailApiResponseData = $this->cocktailApiRequest->getCocktails($cocktailName);
         //TODO API request action
 
         return $this->render('cocktail/submit.html.twig', [
             'cocktailForm' => $form->createView(),
-            'result' => $this->cocktailNameRequest($cocktailName)
+            'cocktails' => $cocktailApiResponseData->getCocktailData(),
+            'error' => $cocktailApiResponseData->getError()
         ]);
-    }
-
-    private function cocktailNameRequest(CocktailName $cocktailName)
-    {
-        //TODO error logger
-
-        $response = $this->httpClient->request('GET', self::URL, [
-            'query' => [
-                's' => $cocktailName->getCocktailName()
-            ]
-        ]);
-
-        $parsedResponse = $response->toArray();
-
-        if(empty($parsedResponse['drinks']) || empty($parsedResponse['drinks'][0])){
-            return 'cocktail not found';
-        }
-
-        return $parsedResponse['drinks'];
     }
 }
